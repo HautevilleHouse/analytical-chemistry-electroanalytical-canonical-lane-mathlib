@@ -1,0 +1,18 @@
+import AnalyticalChemistryElectroanalyticalCanonicalLaneLean.GateLemmas
+import AnalyticalChemistryElectroanalyticalCanonicalLaneLean.ElectrodeKineticsLayer
+import AnalyticalChemistryElectroanalyticalCanonicalLaneLean.VoltammetryLayer
+import AnalyticalChemistryElectroanalyticalCanonicalLaneLean.NernstEquationLayer
+import AnalyticalChemistryElectroanalyticalCanonicalLaneLean.MassTransportLayer
+
+namespace HautevilleHouse
+namespace AnalyticalChemistryElectroanalyticalCanonicalLaneLean
+
+def ConstrainedElectroanalyticalClosure (A : ElectroanalyticalAdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_electroanalytical_endgame (A : ElectroanalyticalAdmissibleClass) :
+    ConstrainedElectroanalyticalClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end AnalyticalChemistryElectroanalyticalCanonicalLaneLean
+end HautevilleHouse
